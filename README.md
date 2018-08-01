@@ -29,6 +29,6 @@ use task
 
 add some entries with this line
 ```
-db.taskList.insert({“Name” : “task1”, “content” : "Lorem ipsum dolor amet vice biodiesel messenger bag, vinyl man braid +1 put a bird on it brunch hashtag austin kogi adaptogen pinterest waistcoat tumeric. Brooklyn tumeric wolf flannel whatever. Actually paleo hammock", "tags" : [ “dev”, “front” ], “user” : [ “Alexis”, “Mustafa” ], "data": { "author": “Alexis”, "state": “not started ”})
+db.taskList.insert({"Name" : "task2", "content" : "Lorem ipsum dolor amet vice biodiesel messenger bag, vinyl man braid +1 put a bird on it brunch hashtag austin kogi adaptogen pinterest waistcoat tumeric. Brooklyn tumeric wolf flannel whatever. Actually paleo hammock", "tags" : [ "design", "back" ], "user" : [ "Alexis", "Mustafa" ], "data": { "author": "Alexis", "state": "done"}})
 ```
 <br>

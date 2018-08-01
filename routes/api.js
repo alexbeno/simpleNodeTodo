@@ -44,6 +44,32 @@ router.get('/task/', (req, res)=> {
     });
 });
 
+router.get('/task/:state', (req, res)=> {
+    if(req.params.state === "not-started") {
+        mongoose.connect(mongoUrl, (err, db) => {
+            if(err) {
+                res.status(404).send('nothing found')
+            } else {
+                db.collection('taskList').find({ "data.state": "not started" }).toArray((err, task) => {
+                    err ? res.status(404).send('nothing found') : res.json(task)
+                });
+            };
+            db.close();
+        });
+    } else {
+        mongoose.connect(mongoUrl, (err, db) => {
+            if(err) {
+                res.status(404).send('nothing found')
+            } else {
+                db.collection('taskList').find({ "data.state": req.params.state }).toArray((err, task) => {
+                    err ? res.status(404).send('nothing found') : res.json(task)
+                });
+            };
+            db.close();
+        });
+    }
+});
+
 router.get('/task/:id' , (req, res) => {
     mongoose.connect(mongoUrl, (err, db) => {
         if(err) {
@@ -53,7 +79,6 @@ router.get('/task/:id' , (req, res) => {
                 // console.log('err', task)
                 err ? res.status(404).send('nothing found') : res.json(task)
             });
-            console.log('db', db.collection('taskList').find({ _id: req.params.id }))
         };
         db.close();
     });

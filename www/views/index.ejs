@@ -2,28 +2,45 @@
   <!-- Inclure les fichiers EJS -->
   <% include ./partials/header %>
 
-  <main>
-      <!-- <ul>
-        <% for(let item of content) { %>
-          <li>
-            <ul>
-              <li><%= item.Name %></li>
-              <li><%= item.content %></li>
-              <li><%= item.tags %></li>
-              <li><%= item.user %></li>
-              <li><%= item.data.author %></li>
-              <li><%= item.data.state %></li>
-            </ul>
-          </li>
-        <% } %>
-    </ul> -->
-    <% for(let item of content) { %>
-      <div class="cards">
-          <% for(let tag of item.tags) { %>
-            <p class="cards__tags cards__tags--<%= tag %>"><%= tag %></p>
+  <main class="container <%= page %>">
+    <div class="headerPage">
+      <h1 class="headerPage__title">What i have to do ?</h1>
+      <div class="filter">
+        <div class="filter__item all">
+          <p class="filter__itemCount">23</p>
+          <a href="/"class="filter__itemText" data-status="all">All</a>
+        </div>
+        <div class="filter__item not-started">
+          <p class="filter__itemCount">10</p>
+          <a href="/not-started"class="filter__itemText" data-status="notstarted">Not started</a>
+        </div>
+        <div class="filter__item progress">
+          <p class="filter__itemCount">5</p>
+          <a href="/progress"class="filter__itemText" data-status="progress">In progress</a>
+        </div>
+        <div class="filter__item done">
+          <p class="filter__itemCount">8</p>
+          <a href="/done"class="filter__itemText" data-status="done">Done</a>
+        </div>
+      </div>
+    </div>
+    <div class="cards__wrapper">
+      <div class="cards__container">
+          <% for(let item of content) { %>
+            <div class="cards cards--<%= item.data.state %>">
+              <div class="cards__header">
+                  <h2 class="cards__title"><%= item.Name %></h2>
+                  <div class="cards__tagContainer">
+                      <% for(let tag of item.tags) { %>
+                        <p class="cards__tags cards__tags--<%= tag %>"><%= tag %></p>
+                      <% } %>
+                  </div>
+              </div>
+                <p class="cards__content"><%= item.content %></p>
+            </div>
           <% } %>
       </div>
-    <% } %>
+    </div>
   </main>
 
   <!-- Inclure les fichiers EJS -->
