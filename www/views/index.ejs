@@ -1,0 +1,30 @@
+
+  <!-- Inclure les fichiers EJS -->
+  <% include ./partials/header %>
+
+  <main>
+      <!-- <ul>
+        <% for(let item of content) { %>
+          <li>
+            <ul>
+              <li><%= item.Name %></li>
+              <li><%= item.content %></li>
+              <li><%= item.tags %></li>
+              <li><%= item.user %></li>
+              <li><%= item.data.author %></li>
+              <li><%= item.data.state %></li>
+            </ul>
+          </li>
+        <% } %>
+    </ul> -->
+    <% for(let item of content) { %>
+      <div class="cards">
+          <% for(let tag of item.tags) { %>
+            <p class="cards__tags cards__tags--<%= tag %>"><%= tag %></p>
+          <% } %>
+      </div>
+    <% } %>
+  </main>
+
+  <!-- Inclure les fichiers EJS -->
+  <% include ./partials/footer %>

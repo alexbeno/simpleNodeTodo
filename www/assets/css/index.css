@@ -1,0 +1,16 @@
+body {
+  background: white; }
+
+.cards__tags {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 5px; }
+  .cards__tags--dev {
+    background: #F6D7D6; }
+  .cards__tags--front {
+    background: #DCD7F3; }
+  .cards__tags--back {
+    background: #F5E1D6; }
+  .cards__tags--design {
+    background: #D7E4F5; }
